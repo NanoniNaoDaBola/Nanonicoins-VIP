@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nanonicoins Radar VIP — Founder Access</title>
+  <meta name="description" content="Founder Access do Nanonicoins Radar VIP. Entre antes da maioria." />
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: rgba(255,255,255,0.04);
+      --panel-2: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.10);
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.62);
+      --muted-2: rgba(255,255,255,0.42);
+      --accent: #c41119;
+      --accent-soft: rgba(196,17,25,0.14);
+      --shadow: 0 30px 120px rgba(0,0,0,.55);
+      --radius: 28px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(196,17,25,0.12), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(196,17,25,0.10), transparent 24%),
+        radial-gradient(circle at 50% 110%, rgba(255,255,255,0.05), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, video { display: block; max-width: 100%; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: rgba(5,5,5,.72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 40px rgba(255,255,255,.05);
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .36em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.34);
+      margin: 0 0 4px;
+      font-weight: 600;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-weight: 700;
+      transition: .2s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: #fff;
+      color: #050505;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,.03);
+      border-color: rgba(255,255,255,.15);
+      color: #fff;
+    }
+
+    .hero {
+      padding: 56px 0 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .chips {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,.58);
+    }
+
+    .hero-kicker {
+      margin: 0;
+      font-size: 11px;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      color: rgba(255,102,102,.86);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      margin: 18px 0 0;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: .96;
+      letter-spacing: -0.06em;
+      font-weight: 700;
+    }
+
+    .hero-title .muted {
+      display: block;
+      color: var(--muted-2);
+    }
+
+    .hero-desc {
+      margin: 26px 0 0;
+      max-width: 700px;
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 26px;
+      margin-top: 28px;
+      color: rgba(255,255,255,.42);
+      font-size: 14px;
+    }
+
+    .price-chip-desktop,
+    .price-chip-mobile {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.03);
+      backdrop-filter: blur(16px);
+    }
+
+    .price-chip-desktop {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 30px;
+      padding: 14px 18px;
+      border-radius: 999px;
+    }
+
+    .price-chip-desktop .divider {
+      width: 1px;
+      height: 42px;
+      background: rgba(255,255,255,.1);
+    }
+
+    .price-chip-mobile {
+      display: none;
+      margin-top: 28px;
+      overflow: hidden;
+      border-radius: 30px;
+      box-shadow: 0 20px 80px rgba(120,0,0,.25);
+      outline: 1px solid rgba(196,17,25,.12);
+      background: linear-gradient(135deg, rgba(196,17,25,.15), rgba(255,255,255,.03));
+    }
+
+    .price-mobile-top { padding: 18px 20px 16px; }
+    .price-mobile-bottom {
+      padding: 12px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      background: rgba(0,0,0,.26);
+    }
+
+    .mini-badge,
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      font-weight: 700;
+    }
+
+    .mini-badge {
+      padding: 8px 12px;
+      color: rgba(255,170,170,.92);
+      background: rgba(196,17,25,.12);
+      border: 1px solid rgba(196,17,25,.24);
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      padding: 9px 14px;
+      color: rgba(255,170,170,.92);
+      background: rgba(196,17,25,.12);
+      border: 1px solid rgba(196,17,25,.24);
+    }
+
+    .strike { text-decoration: line-through; color: rgba(255,255,255,.32); }
+    .price-big {
+      font-size: clamp(42px, 6vw, 64px);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+    .per { color: rgba(255,255,255,.45); font-size: 15px; }
+    .small-text { font-size: 14px; color: rgba(255,255,255,.58); line-height: 1.7; }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(196,17,25,.12), transparent 50%, rgba(255,255,255,.05));
+      filter: blur(18px);
+      transform: scale(1.02);
+    }
+
+    .video-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      border: 1px solid var(--border);
+      background: #050505;
+      box-shadow: var(--shadow);
+    }
+
+    .video-wrap {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: #000;
+    }
+
+    .video-wrap video,
+    .video-wrap img.poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.28), transparent);
+    }
+
+    .video-tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.46);
+      backdrop-filter: blur(12px);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      color: rgba(255,255,255,.58);
+      padding: 9px 12px;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .play-badge {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .play-badge span {
+      display: grid;
+      place-items: center;
+      width: 82px;
+      height: 82px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(14px);
+      font-size: 34px;
+      color: rgba(255,255,255,.9);
+    }
+
+    .video-info {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    .video-info-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(12px);
+    }
+
+    .video-info-card p { margin: 0; }
+    .video-info-card .label {
+      text-transform: uppercase;
+      letter-spacing: .30em;
+      font-size: 11px;
+      color: rgba(255,255,255,.40);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .video-info-card .text {
+      color: rgba(255,255,255,.74);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .active-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(196,17,25,.20);
+      background: rgba(196,17,25,.10);
+      color: rgba(255,170,170,.95);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 11px;
+      padding: 9px 12px;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .section {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 88px 0;
+      position: relative;
+    }
+
+    .section-heading {
+      display: flex;
+      gap: 24px;
+      align-items: end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h3 {
+      margin: 10px 0 0;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .section-heading p:last-child {
+      max-width: 500px;
+      color: rgba(255,255,255,.5);
+      line-height: 1.8;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .proof-grid,
+    .pillars-grid,
+    .offer-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .proof-grid { grid-template-columns: repeat(3, 1fr); }
+    .pillars-grid { grid-template-columns: repeat(3, 1fr); }
+    .offer-grid { grid-template-columns: 1fr .95fr; gap: 28px; }
+
+    .proof-card {
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 20px 80px rgba(0,0,0,.35);
+    }
+
+    .proof-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pillar,
+    .offer-panel,
+    .checkout-panel,
+    .final-panel {
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: rgba(255,255,255,.035);
+      box-shadow: 0 10px 60px rgba(0,0,0,.35);
+    }
+
+    .pillar {
+      padding: 30px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.40);
+      display: grid;
+      place-items: center;
+      color: rgba(255,170,170,.94);
+      font-size: 20px;
+    }
+
+    .pillar h4 {
+      margin: 18px 0 0;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .pillar p {
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.55);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .offer-panel {
+      padding: 34px;
+      background: rgba(0,0,0,.7);
+    }
+
+    .offer-panel h3,
+    .checkout-panel h3 {
+      margin: 16px 0 0;
+      font-size: clamp(30px, 3vw, 48px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+    }
+
+    .offer-list {
+      margin-top: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .offer-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 15px 18px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+
+    .offer-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #fff;
+      color: #050505;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      flex: 0 0 auto;
+      margin-top: 2px;
+      font-weight: 700;
+    }
+
+    .offer-item p {
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .checkout-panel {
+      padding: 34px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+
+    .checkout-box {
+      margin-top: 28px;
+      padding: 24px;
+      border-radius: 28px;
+      border: 1px solid rgba(196,17,25,.15);
+      background: linear-gradient(135deg, rgba(196,17,25,.10), rgba(0,0,0,.45));
+      box-shadow: 0 20px 80px rgba(120,0,0,.15);
+      outline: 1px solid rgba(196,17,25,.10);
+    }
+
+    .checkout-box .checkout-note {
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.58);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .checkout-mini {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    .checkout-mini .k {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      color: rgba(255,255,255,.35);
+      font-weight: 700;
+    }
+
+    .checkout-mini .v {
+      margin-top: 8px;
+      color: rgba(255,255,255,.68);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .final-panel {
+      padding: 40px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(196,17,25,.10), rgba(255,255,255,.03), rgba(255,255,255,.02));
+      box-shadow: 0 30px 120px rgba(0,0,0,.45);
+      border-radius: 36px;
+    }
+
+    .final-panel h3 {
+      margin: 16px auto 0;
+      max-width: 900px;
+      font-size: clamp(38px, 5vw, 74px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .final-panel h3 span {
+      display: block;
+      color: rgba(255,255,255,.42);
+    }
+
+    .sticky-mobile {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      padding: 12px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      background: rgba(5,5,5,.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .sticky-mobile-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: min(100%, 560px);
+      margin: 0 auto;
+    }
+
+    .sticky-mobile .left {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sticky-mobile .founder-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      color: rgba(255,255,255,.40);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .sticky-price-row {
+      display: flex;
+      align-items: end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .sticky-price-row .price-now {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .muted-40 { color: rgba(255,255,255,.40); }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .offer-grid,
+      .proof-grid,
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding-top: 42px; }
+      .hero-media { order: -1; }
+      .video-wrap { aspect-ratio: 16 / 11; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner { padding: 14px 0; }
+      .btn { padding: 13px 18px; }
+      .topbar .btn-secondary { padding-inline: 16px; }
+      .hero-title { font-size: clamp(42px, 13vw, 64px); }
+      .hero-desc { font-size: 16px; line-height: 1.85; }
+      .price-chip-desktop { display: none; }
+      .price-chip-mobile { display: block; }
+      .cta-row { flex-direction: column; }
+      .cta-row .btn { width: 100%; }
+      .video-info { padding: 14px; }
+      .video-info-card {
+        flex-direction: column;
+        align-items: start;
+      }
+      .active-pill { display: none; }
+      .section { padding: 72px 0; }
+      .offer-panel,
+      .checkout-panel,
+      .pillar,
+      .final-panel { padding: 24px; }
+      .final-panel { margin-bottom: 84px; }
+      .sticky-mobile { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="assets/logo.png" alt="Nanonicoins logo" width="32" height="32" />
+        </div>
+        <div>
+          <p class="eyebrow">Nanonicoins</p>
+          <h1>Radar VIP — Founder Access</h1>
+        </div>
+      </div>
+      <a class="btn btn-secondary" href="#checkout">Garantir acesso</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="chips">
+            <span class="chip">Founder Access</span>
+            <span class="chip">Sinais premium</span>
+            <span class="chip">Acesso imediato</span>
+          </div>
+
+          <p class="hero-kicker">acesso reservado</p>
+
+          <h2 class="hero-title">
+            Você não entra depois.
+            <span class="muted">Você entra antes.</span>
+          </h2>
+
+          <p class="hero-desc">
+            Enquanto a maioria reage, você já pode estar posicionado. Uma experiência premium para quem quer acesso mais rápido, leitura mais completa e presença de produto caro.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://pay.ticto.com/SEU-LINK-AQUI" target="_blank" rel="noopener noreferrer">Garantir Founder Access →</a>
+            <a class="btn btn-secondary" href="#prova">Ver sinais reais</a>
+          </div>
+
+          <div class="meta-row">
+            <span>Founder Access</span>
+            <span>CEX + DEX</span>
+            <span>Entrada imediata</span>
+          </div>
+
+          <div class="price-chip-mobile">
+            <div class="price-mobile-top">
+              <div class="mini-badge">★ early access</div>
+              <p class="eyebrow" style="color: rgba(255,170,170,.82); margin-bottom: 8px;">Founder Price</p>
+              <div class="strike">R$249,99</div>
+              <div style="display:flex; align-items:end; gap:8px; margin-top:4px;">
+                <div class="price-big">R$49,99</div>
+                <div class="per">/mês</div>
+              </div>
+              <p class="small-text" style="margin:10px 0 0; max-width: 320px;">Founder Access promocional antes do valor oficial.</p>
+            </div>
+            <div class="price-mobile-bottom">
+              <a class="btn btn-primary" href="https://pay.ticto.com/SEU-LINK-AQUI" target="_blank" rel="noopener noreferrer" style="width:100%;">Garantir Founder Access →</a>
+            </div>
+          </div>
+
+          <div class="price-chip-desktop">
+            <div>
+              <p class="eyebrow" style="margin-bottom:6px;">Founder Access</p>
+              <div style="display:flex; align-items:end; gap:8px;">
+                <span class="strike">R$249,99</span>
+                <strong style="font-size:34px; letter-spacing:-.04em;">R$49,99</strong>
+                <span class="per">/mês</span>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <p class="small-text" style="max-width:210px; margin:0;">Founder price ativo enquanto esta janela estiver aberta.</p>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay loop muted playsinline poster="assets/video-poster.png">
+                <source src="assets/video.mp4" type="video/mp4" />
+                <img class="poster" src="assets/video-poster.png" alt="Sistema em execução" />
+              </video>
+              <div class="video-overlay"></div>
+              <div class="video-tag">Sistema em execução</div>
+              <div class="play-badge"><span>▶</span></div>
+              <div class="video-info">
+                <div class="video-info-card">
+                  <div>
+                    <p class="label">Fluxo premium</p>
+                    <p class="text">Vídeo do sistema, leitura em tempo real e atmosfera de produto caro.</p>
+                  </div>
+                  <div class="active-pill">active</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prova">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">prova real</p>
+            <h3>Sinais reais. Interface real. Execução agora.</h3>
+          </div>
+          <p>Sem promessa genérica. Apenas o que já está rodando.</p>
+        </div>
+
+        <div class="proof-grid">
+          <div class="proof-card"><img src="assets/print1.jpeg" alt="Print real do radar 1" /></div>
+          <div class="proof-card"><img src="assets/print2.jpeg" alt="Print real do radar 2" /></div>
+          <div class="proof-card"><img src="assets/print3.jpeg" alt="Print real do radar 3" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container pillars-grid">
+        <article class="pillar">
+          <div class="pillar-icon">🛡</div>
+          <h4>Presença institucional</h4>
+          <p>Visual escuro, refinado e silenciosamente caro. Nada com cara de página comum.</p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar-icon">✦</div>
+          <h4>Leitura premium</h4>
+          <p>Score, classe, setup e contexto apresentados com clareza para decisão rápida.</p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar-icon">🔒</div>
+          <h4>Acesso restrito</h4>
+          <p>Founder Access é entrada antecipada antes do valor oficial de lançamento.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container offer-grid">
+        <article class="offer-panel">
+          <p class="eyebrow" style="color: rgba(255,102,102,.82);">o que entra</p>
+          <h3>Founder Access com cara de produto de elite.</h3>
+
+          <div class="offer-list">
+            <div class="offer-item"><div class="offer-check">✓</div><p>Sinais VIP com leitura completa e objetiva</p></div>
+            <div class="offer-item"><div class="offer-check">✓</div><p>Cobertura CEX e DEX em ambiente premium</p></div>
+            <div class="offer-item"><div class="offer-check">✓</div><p>Execução rápida com acesso direto</p></div>
+            <div class="offer-item"><div class="offer-check">✓</div><p>Founder Access por R$49,99 enquanto a janela estiver aberta</p></div>
+          </div>
+        </article>
+
+        <article class="checkout-panel" id="checkout">
+          <div class="badge">★ Founder Access</div>
+          <h3>Entre agora antes do valor oficial assumir o lugar dele.</h3>
+          <p class="small-text" style="margin: 18px 0 0; max-width: 520px;">
+            Você entra hoje com preço promocional. Quando essa janela fechar, o acesso volta para o valor oficial.
+          </p>
+
+          <div class="checkout-box">
+            <p class="eyebrow" style="color: rgba(255,170,170,.88); margin-bottom: 10px;">Founder Access</p>
+            <div class="strike" style="font-size:18px;">R$249,99</div>
+            <div style="display:flex; align-items:end; gap:8px; margin-top:4px; flex-wrap:wrap;">
+              <div class="price-big">R$49,99</div>
+              <div class="per">/mês</div>
+            </div>
+            <p class="checkout-note">Founder Access promocional. Depois volta para R$249,99.</p>
+
+            <div class="checkout-mini">
+              <div class="k">checkout</div>
+              <div class="v">Acesso imediato após confirmação. Pix e cartão. Estrutura pronta para receber seu link final.</div>
+            </div>
+
+            <p class="small-text" style="margin: 14px 0 0;">Menos de R$2 por dia para entrar antes da maioria.</p>
+
+            <a class="btn btn-primary" href="https://pay.ticto.com/SEU-LINK-AQUI" target="_blank" rel="noopener noreferrer" style="width:100%; margin-top:20px;">Ir para o checkout →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" style="padding-bottom: 120px;">
+      <div class="container">
+        <div class="final-panel">
+          <p class="eyebrow">decisão</p>
+          <h3>
+            Ou você entra antes do movimento.
+            <span>Ou assiste depois, pagando mais caro.</span>
+          </h3>
+          <a class="btn btn-primary" href="https://pay.ticto.com/SEU-LINK-AQUI" target="_blank" rel="noopener noreferrer" style="margin-top:28px;">Quero garantir meu Founder Access →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-mobile">
+    <div class="sticky-mobile-inner">
+      <div class="left">
+        <div class="founder-label">Founder</div>
+        <div class="sticky-price-row">
+          <span class="strike" style="font-size:12px;">R$249,99</span>
+          <span class="price-now">R$49,99</span>
+          <span class="muted-40" style="font-size:12px;">/mês</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="https://pay.ticto.com/SEU-LINK-AQUI" target="_blank" rel="noopener noreferrer" style="padding: 12px 18px;">Entrar</a>
+    </div>
+  </div>
+</body>
+</html>
